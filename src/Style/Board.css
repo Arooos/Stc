@@ -1,0 +1,10 @@
+
+.Board {
+    width: 1176px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+}
+
+

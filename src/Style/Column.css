@@ -1,0 +1,61 @@
+.Todo {
+    background-color: rgba(0, 117, 98, 0.15);
+}
+
+.Plan {
+    background-color: rgba(255, 215, 150, 1);
+}
+
+.Work {
+    background-color: rgba(254, 152, 155, 1);
+}
+
+.Done {
+    background-color: rgba(159, 186, 239, 1);
+}
+
+.Column {
+    font-family: 'Inter', sans-serif;
+    width: 290px;
+}
+
+.Column .Column_head {
+    box-sizing: border-box;
+    height: 32px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.Column .Column_head .Column_head_item .Column_head_item_title {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(40, 43, 45, 0.92)
+}
+
+.Column .Column_head .Column_head_item .Column_head_item_count {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(40, 43, 45, 0.6)
+}
+
+
+.Column .Column_head .Column_head_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.Column .Column_head .Column_head_icons{
+    width: 48px;
+    height: 16px;
+    display: flex;
+}
+
+.Column .Column_head .Column_head_icons_1 {
+    margin-right: 16px;
+}
+
+
