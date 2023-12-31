@@ -1,16 +1,10 @@
-import '../Style/Task.css'
-import '../Style/Column.css'
+import './Task.css'
+import '../column/Column.css'
 import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 
 export default function Task({Todo, Plan, Work, Done}) {
-
-    // console.log (Todo)
-    // console.log (Plan)
-    // console.log (Work)
-    // console.log (Done)
-
 
 new AirDatepicker('#DateTime', {
     timepicker: true,
