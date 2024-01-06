@@ -3,6 +3,7 @@ import '../column/Column.css'
 import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
+import { useSelector } from 'react-redux';
 
 export default function Task({Todo, Plan, Work, Done}) {
 
@@ -13,6 +14,14 @@ new AirDatepicker('#DateTime', {
 
     const [Active, setActive] = useState(false);
     
+
+
+    const title = useSelector((store) => store.tasks.tasks.title)
+
+    console.log(title);
+
+
+
   return (
     // Карточка 
     <div className={`Task ${Active ? "active" : ""}`}>

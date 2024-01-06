@@ -1,5 +1,7 @@
-export const Task = {
-    1: {
+
+const initialState = {
+    tasks: [
+        {
         id: '1',
         status: 'Todo',
         title: 'Расстановка отряда',
@@ -7,7 +9,7 @@ export const Task = {
         time: '19:00',
         executor: 'Петров А.А',
     },
-    2: {
+    {
         id: '2',
         status: 'Plan',
         title: 'Починить ноутбук',
@@ -15,4 +17,15 @@ export const Task = {
         time: '19:00',
         executor: 'Петров А.А',
     }
-}
+    ],
+    count: 2
+    
+};
+
+const state = (state = initialState, action) => {
+    switch (action.type) {
+        default: return state
+    }
+};
+
+export default state
