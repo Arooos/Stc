@@ -3,22 +3,22 @@ export const column = {
     Todo: {
         id: '1',
         title: 'Неразобранные задачи',
-        className: 'Todo'
+        status: 'Todo'
     },
     Plan: {
         id: '2',
         title: 'В планах',
-        className: 'Plan'
+        status: 'Plan'
     },
     Running: {
         id: '3',
         title: 'В работе',
-        className: 'Running'
+        status: 'Running'
     },
     Done: {
         id: '4',
         title: 'Выполнено',
-        className: 'Done'
+        status: 'Done'
     },
 }
     

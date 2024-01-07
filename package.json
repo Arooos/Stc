@@ -1,5 +1,5 @@
 {
-  "name": "kanban-without-dnd",
+  "name": "kanban",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "air-datepicker": "^3.4.0",
-    "react": "^18.2.0",
+    "react": "^18.0.0-rc.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
     "react-scripts": "^5.0.1",

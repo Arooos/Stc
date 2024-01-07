@@ -3,9 +3,10 @@ import '../column/Column.css'
 import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
-import { useSelector } from 'react-redux';
 
-export default function Task({Todo, Plan, Work, Done}) {
+
+
+export default function Task({status, title, date, time, executor}) {
 
 new AirDatepicker('#DateTime', {
     timepicker: true,
@@ -14,28 +15,21 @@ new AirDatepicker('#DateTime', {
 
     const [Active, setActive] = useState(false);
     
-
-
-    const title = useSelector((store) => store.tasks.tasks.title)
-
-    console.log(title);
-
-
-
   return (
+    
     // Карточка 
     <div className={`Task ${Active ? "active" : ""}`}>
         <div className='Task_btn' onClick={() => setActive(!Active)}>
             <div className='Task_main'>
-                <div className='Task_main_title'>Расстановка отряда</div>
-                <div className={`Task_main_deadlines ${Todo ? "Todo" : ""} ${Plan ? "Plan" : ""} ${Work ? "Work" : ""} ${Done ? "Done" : ""}`}>
-                    <div className='Task_main_deadlines_date'>31 марта,</div>
-                    <div className='Task_main_deadlines_time'>19:00</div>
+                <div className='Task_main_title'>{title}</div>
+                <div className={`Task_main_deadlines ${status}`}>
+                    <div className='Task_main_deadlines_date'>{date},</div>
+                    <div className='Task_main_deadlines_time'>{time}</div>
                 </div>
                 <div className='Task_main_info'>
-                    <div className='Task_main_info_executor'>Петров А.А</div>
+                    <div className='Task_main_info_executor'>{executor}</div>
                     <div className='Task_main_info_comm'>
-                        <div className='Task_main_info_comm_icon'><img src='../img/task_img/Comment.png' alt='comments'></img>    2</div>
+                        <div className='Task_main_info_comm_icon'><img src='../img/task_img/Comment.png' alt='comments'></img>   2</div>
                         <div className='Task_main_info_comm_file'><img src='../img/task_img/file.png' alt='file'></img>   6</div>
                     </div>
                 </div>
@@ -43,7 +37,7 @@ new AirDatepicker('#DateTime', {
         </div>
         {/* Выподающие меню карточки */}
         <div className={`dropdown ${Active ? "active" : ""}`}>
-            <div className='dropdown_title'>Расстановка отряда</div>
+            <div className='dropdown_title'>{title}</div>
             <div className='dropdown_executor'>
                 <div className='dropdown_executor_title title'>Исполнитель</div>
                 <div className='dropdown_executor_wrapper'>

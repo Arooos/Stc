@@ -8,8 +8,9 @@ export default function Board() {
 
   return (
           <div className='Board'>
-            {Object.keys(column).map(item =>
-            <Column id={item.id} className={item.className} title={item.title}/>
+            { 
+              Object.entries(column).map(([index,item]) =>
+               <Column key={item.id} status={item.status} title={item.title}/>  
             )}
           </div>
       )

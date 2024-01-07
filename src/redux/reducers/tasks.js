@@ -1,7 +1,6 @@
 
-const initialState = {
-    tasks: [
-        {
+const initialState = [
+    {
         id: '1',
         status: 'Todo',
         title: 'Расстановка отряда',
@@ -15,12 +14,9 @@ const initialState = {
         title: 'Починить ноутбук',
         date: '31 марта',
         time: '19:00',
-        executor: 'Петров А.А',
-    }
-    ],
-    count: 2
-    
-};
+        executor: 'Петров А.А',  
+    },
+];
 
 const state = (state = initialState, action) => {
     switch (action.type) {
