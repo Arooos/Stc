@@ -21,10 +21,8 @@ export default function Column({status, title,}) {
 					<img className='Column_head_icons_2' src="../img/column.png" alt='#'/>
 				</div>
 			</div>
-			{
-				Object.entries(filt).map(([index,item]) =>
-				<Task key={item.id} status={item.status} title={item.title} date={item.date} time={item.time} executor={item.executor}/>
-			)}
+			{Object.values(filt).map(item => 
+			<Task key={item.id} status={item.status} title={item.title} date={item.date} time={item.time} executor={item.executor}/>)}
 		</div>
 	)
 }

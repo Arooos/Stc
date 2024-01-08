@@ -3,8 +3,9 @@ import '../column/Column.css'
 import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
+import { column } from '../board/BoardData';
 
-
+console.log();
 
 export default function Task({status, title, date, time, executor}) {
 
@@ -60,11 +61,11 @@ new AirDatepicker('#DateTime', {
                 
             <div className='dropdown_categories'>
                 <div className='dropdown_categories_title'>Категория</div>
-                <select className='dropdown_categories_list'>
-                    <option className='dropdown_categories_list_item'>Неразобранные задачи</option>
-                    <option className='dropdown_categories_list_item'>В планах</option>
-                    <option className='dropdown_categories_list_item'>В работе</option>
-                    <option className='dropdown_categories_list_item'>Выполнено</option>
+                <select className='dropdown_categories_list' defaultValue={status}>
+                    {
+                        Object.values(column).map(item =>
+                        <option key={item.id} value={item.status} className='dropdown_categories_list_item'>{item.title}</option>
+                    )}
                 </select>
             </div>
         </div>

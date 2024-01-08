@@ -16,10 +16,27 @@ const initialState = [
         time: '19:00',
         executor: 'Петров А.А',  
     },
+    {
+        id: '3',
+        status: 'Done',
+        title: 'Выполнить задачу',
+        date: '25 марта',
+        time: '18:00',
+        executor: 'Петров А.А',  
+    },
+    {
+        id: '4',
+        status: 'Done',
+        title: 'Убрать рабочее место',
+        date: '3 января',
+        time: '10:00',
+        executor: 'Петров А.А',  
+    },
 ];
 
 const state = (state = initialState, action) => {
     switch (action.type) {
+        
         default: return state
     }
 };
