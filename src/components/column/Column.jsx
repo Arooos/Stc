@@ -4,10 +4,14 @@ import './Column.css'
 import { useSelector } from 'react-redux'
 
 export default function Column({status, title,}) {
+
 	// счётчик задач 
-	// const count = useSelector((store) => store.tasks.count)
-	const tasks = useSelector((store) => store.tasks)
-	const filt = tasks.filter(value => value.status === status)
+	// const count = useSelector((store) => store.count)
+
+	const tasks = useSelector((store) => store.tasks.tasks);
+	// const values = Object.values(tasks.tasks)
+	const filt = (tasks || []).filter((value) => value.status === status)
+	
 
 	return (
 		<div className='Column'>
@@ -22,7 +26,7 @@ export default function Column({status, title,}) {
 				</div>
 			</div>
 			{Object.values(filt).map(item => 
-			<Task key={item.id} status={item.status} title={item.title} date={item.date} time={item.time} executor={item.executor}/>)}
+			<Task key={item.id} id={item.id} status={item.status} title={item.title} date={item.date} time={item.time} executor={item.executor}/>)}
 		</div>
 	)
 }

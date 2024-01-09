@@ -4,17 +4,20 @@ import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import { column } from '../board/BoardData';
+import { changeStatus } from '../../redux/reducers/tasks';
+import { useDispatch } from 'react-redux';
 
-console.log();
 
-export default function Task({status, title, date, time, executor}) {
+export default function Task({id,status, title, date, time, executor}) {
+
+    const [Active, setActive] = useState(false);
+    const dispatch = useDispatch();
+;
 
 new AirDatepicker('#DateTime', {
     timepicker: true,
     dateTimeSeparatorstring: ",",
 })
-
-    const [Active, setActive] = useState(false);
     
   return (
     
@@ -61,7 +64,7 @@ new AirDatepicker('#DateTime', {
                 
             <div className='dropdown_categories'>
                 <div className='dropdown_categories_title'>Категория</div>
-                <select className='dropdown_categories_list' defaultValue={status}>
+                <select className='dropdown_categories_list' defaultValue={status} onChange={(e) => dispatch(changeStatus(id, e.target.value))}>
                     {
                         Object.values(column).map(item =>
                         <option key={item.id} value={item.status} className='dropdown_categories_list_item'>{item.title}</option>
