@@ -1,6 +1,5 @@
 
-const initialState = {
-    tasks: [
+const initialState = [
         {
             id: '1',
             status: 'Todo',
@@ -41,31 +40,35 @@ const initialState = {
             time: '10:00',
             executor: 'Петров А.А',  
         }
-    ],
-    count: 0,
-};
+    ];
 
 const state = (state = initialState, action) => {
     switch (action.type) {
-        case 'ChangeStatus': {
-            // console.log(action.id)
-            // console.log(action.newStatus);
-            // setTasks(tasks.map((task) => (task.id === action.id) ? {...state, tasks.status: newStatus} : task));
+        case 'ChangeStatus': 
+            console.log(action.id)
+            console.log(action.newStatus);
+            // return Object.assign({}, state.tasks, {
+                
+            //     tasks: state.tasks.map((task, status) => {
+            //         if (status !== action.status) {
+            //             return Object.assign({}, test, {
+            //                 status: action.newStatus,
+            //             });
+            //         }
+            //         return task;
+            //     })
+            // });
 
-            return {
-                ...state,
-                if (tasks.id === id)
-                
-                
-            }
-        }
+            return state.map((task) => (task.id === action.id) ? {...task, status: action.newStatus} : task)
+            
+        
         default: return state
     }
 };
 
-export const changeStatus = (id, newStatus) => {
+export const changeStatus = (id, status, newStatus) => {
     return (dispatch) => {
-        return dispatch({type: 'ChangeStatus', id, newStatus})
+        return dispatch({type: 'ChangeStatus',id, status, newStatus})
     }
 }
 

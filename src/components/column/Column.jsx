@@ -8,8 +8,7 @@ export default function Column({status, title,}) {
 	// счётчик задач 
 	// const count = useSelector((store) => store.count)
 
-	const tasks = useSelector((store) => store.tasks.tasks);
-	// const values = Object.values(tasks.tasks)
+	const tasks = useSelector((store) => store.tasks);
 	const filt = (tasks || []).filter((value) => value.status === status)
 	
 
