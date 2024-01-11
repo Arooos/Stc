@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import { column } from '../board/BoardData';
-import { changeStatus } from '../../redux/reducers/tasks';
+import { changeStatus } from '../../redux/actions/changeTaskStatusAction';
 import { useDispatch } from 'react-redux';
 
 
