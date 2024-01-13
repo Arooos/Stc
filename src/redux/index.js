@@ -1,17 +1,13 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import rootReducer from "./reducers/rootReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { thunk } from "redux-thunk";
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
+import taskSlice from './tasks/tasks.slice'
 
 
-const initialState = {};
+const rootReducer = combineReducers({
+    tasksReducer: taskSlice,
+})
 
-const composeFunk = process.env.NODE_ENV === 'development' ? composeWithDevTools : compose;
-const composeEnhancers = composeFunk(applyMiddleware(thunk))
-
-const store = createStore(rootReducer(), initialState, composeEnhancers);
+export const store = configureStore({
+    reducer: rootReducer,
+})
 
 export default store;
-
-
-
