@@ -3,7 +3,7 @@ import { column } from "../../board/BoardData";
 import './DropDownMenu.css'
 
 export default function DropDownMenu (item) {
-    console.log(item);
+    // console.log(item);
     const task = item.task.item.data
     // get All task
 

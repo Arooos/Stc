@@ -8,12 +8,12 @@ export default function Column({status, title,}) {
 
 	const tasks = useSelector((state) => state.tasksReducer.tasks);
 
-
 	const tasksObj = Object.keys(tasks).map(function(key) {
 		return {"id": key, "data": tasks[key]}})
+		console.log(tasksObj);
 	const filterTask = useMemo(() => (tasksObj.filter((value) => value.data.status === status)), [tasksObj])
 	const count = Object.entries(filterTask).length;
-		// console.log(filterTask);
+		console.log(filterTask);
 	return (
 		<div className='Column'>
 			<div className={`Column_head ${status}`}>

@@ -2,7 +2,8 @@ import './Task.css'
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 import DropDownMenu from './dropdown/DropDownMenu';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+// import { toggleCurrentTask } from '../../redux/tasks/tasks.slice';
 
 
 export default function Task(item) {
@@ -12,20 +13,20 @@ export default function Task(item) {
         dateTimeSeparatorstring: ",",
     })
 
-
-
     const task = item.item.data
     const id = task.id
-    const dispatch = useDispatch;
-    const handler = (event) => {
-        const oldTask = task[id];
-        const updateTask = { ...oldTask, status: event.carrentTarget.value}
-        dispatch(updateTask(updateTask))
-    }
+
+    // const dispatch = useDispatch();
+    // const updateTask = () => dispatch(toggleCurrentTask({id}))
+    // const handler = (event) => {
+    //     const oldTask = task[id];
+    //     const updateTask = { ...oldTask, status: event.carrentTarget.value}
+    //     dispatch(updateTask(updateTask))
+    // }
   return (
     // Карточка 
     <div className={`Task ${task.active === true ? "active" : ""}`}>
-        <div className='Task_btn' onClick={(handler)}>
+        <div className='Task_btn'>
             <div className='Task_main'>
                 <div className='Task_main_title'>{task.title}</div>
                 <div className={`Task_main_deadlines ${task.status}`}>

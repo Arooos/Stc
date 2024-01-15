@@ -3,52 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const taskSlice = createSlice({
     name: "tasks",
     initialState: {
-        tasks: {
-            1:{
-                id: '1',
-                status: 'Todo',
-                title: 'Расстановка отряда',
-                deadline: 'Без срока',
-                executor: 'Петров А.А',
-            },
-            2:{
-                id: '2',
-                status: 'Plan',
-                title: 'Починить ноутбук',
-                deadline: '31 марта, 19:00',
-                executor: 'Петров А.А',  
-            },
-            3:{
-                id: '3',
-                status: 'Done',
-                title: 'Выполнить задачу',
-                deadline: 'Выполнено',
-                executor: 'Петров А.А',  
-            },
-            4:{
-                id: '4',
-                status: 'Done',
-                title: 'Убрать рабочее место',
-                deadline: 'Выполнено',
-                executor: 'Петров А.А',  
-            },
-            5:{
-                id: '5',
-                status: 'Running',
-                title: 'Помыть машину',
-                deadline: '31 марта, 19:00',
-                executor: 'Петров А.А',  
-            }
-        },
+        tasks: [],
         currentTask: null,
     },
     reducers: {
-        // addTask(state) {
-        //     state.tasks.push({})
-        // },
-        toggleCurrentTask(state, actoin) {},
+        addTask(state, action) {
+            state.tasks.push(action.payload);
+            console.log(action.payload);
+        },
+        
+        toggleCurrentTask(state, action) {
+            const tasksObj = Object.entries(state.tasks).map(item => item)
+            console.log(tasksObj);
+        //     (function(key) {
+        //         return {tasks: state.tasks[key]}})
+        //     state.tasks = tasksObj.filter(task => task.id !== action.payload.id)
+        },
     }
 })
 
-export const {toggleCurrentTask} = taskSlice.actions;
+export const {toggleCurrentTask, addTask} = taskSlice.actions;
 export default taskSlice.reducer;
