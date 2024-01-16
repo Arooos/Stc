@@ -16,6 +16,7 @@ function App() {
           title: 'Расстановка отряда',
           deadline: 'Без срока',
           executor: 'Петров А.А',
+          active: false
         },
         2:{
             id: '2',
@@ -23,6 +24,7 @@ function App() {
             title: 'Починить ноутбук',
             deadline: '31 марта, 19:00',
             executor: 'Петров А.А',  
+            active: false
         },
         3:{
             id: '3',
@@ -30,6 +32,7 @@ function App() {
             title: 'Выполнить задачу',
             deadline: 'Выполнено',
             executor: 'Петров А.А',  
+            active: false
         },
         4:{
             id: '4',
@@ -37,6 +40,7 @@ function App() {
             title: 'Убрать рабочее место',
             deadline: 'Выполнено',
             executor: 'Петров А.А',  
+            active: false
         },
         5:{
             id: '5',
@@ -44,12 +48,11 @@ function App() {
             title: 'Помыть машину',
             deadline: '31 марта, 19:00',
             executor: 'Петров А.А',  
+            active: false
         }
       }))
-    }, 2000)
+    }, 600)
   })
-
-
 
   return (
     <div className="App">

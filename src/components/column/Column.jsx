@@ -21,7 +21,7 @@ export default function Column({status, title,}) {
 			<div className={`Column_head ${status}`}>
 				<div className='Column_head_item'>
 					<div className='Column_head_item_title'>{title}</div>
-					<div className="Column_head_item_count">{""}</div>
+					<div className="Column_head_item_count">{count}</div>
 				</div>
 				<div className="Column_head_icons">
 					<img className='Column_head_icons_1' src="../img/column.png" alt='#'/>

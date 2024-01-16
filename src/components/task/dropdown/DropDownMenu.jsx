@@ -1,21 +1,18 @@
+
 import { column } from "../../board/BoardData";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { changeStatus } from "../../../redux/tasks/tasks.slice";
 import './DropDownMenu.css'
 
 export default function DropDownMenu (item) {
     const task = item.task
+    const id = task.id
     // get All task
+    const dispatch = useDispatch();
+    const handler = (event) => dispatch(changeStatus(event, id))
 
-
-    // const dispatch = useDispatch();
-
-    // const handler = (event) => {
-    //     const oldTask = tasks[id]
-
-    //     const updateTask = { ...oldTask, status: event.carrentTarget.value}
-
-    //     dispatch(updateTask(updatedTask))
-    // }
+        // const oldTask = tasks[task.id]
+        // const updateTask = { ...oldTask, status: event.carrentTarget.value}
 
     return (
         <div className={`dropdown ${task.active === true ? "active" : ""}`}>
@@ -41,7 +38,7 @@ export default function DropDownMenu (item) {
             </div>
             <div className='dropdown_categories'>
                 <div className='dropdown_categories_title'>Категория</div>
-                <select className='dropdown_categories_list' defaultValue={task.status}>
+                <select className='dropdown_categories_list' defaultValue={task.status} onClick={handler(event)}>
                     {
                         Object.values(column).map(item =>
                         <option key={item.id} value={item.status} className='dropdown_categories_list_item'>{item.title}</option>
@@ -49,4 +46,4 @@ export default function DropDownMenu (item) {
                 </select>
             </div>
         </div> 
-)}
+    )}

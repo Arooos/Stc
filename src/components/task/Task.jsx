@@ -18,7 +18,7 @@ export default function Task(item) {
     const id = task.id
 
     const dispatch = useDispatch();
-    const handler = () => dispatch(toggleCurrentTask({id}))
+    const active = () => dispatch(toggleCurrentTask({id}))
     // const handler = (event) => {
     //     const oldTask = task[id];
     //     const updateTask = { ...oldTask, status: event.currentTarget.value}
@@ -27,7 +27,7 @@ export default function Task(item) {
   return (
     // Карточка 
     <div className={`Task ${task.active === true ? "active" : ""}`}>
-        <div className='Task_btn' onClick={handler}>
+        <div className='Task_btn' onClick={active}>
             <div className='Task_main'>
                 <div className='Task_main_title'>{task.title}</div>
                 <div className={`Task_main_deadlines ${task.status}`}>

@@ -4,7 +4,7 @@ const taskSlice = createSlice({
     name: "tasks",
     initialState: {
         tasks: {},
-        currentTask: null,
+        currentTask: {},
     },
     reducers: {
         addTask(state, action) {
@@ -12,23 +12,22 @@ const taskSlice = createSlice({
         },
         
         toggleCurrentTask(state, action) {
-            console.log(action.payload.id);
-
-            state.tasks = 
-            // const tasksObj = Object.values(state.tasks).map(item => item)
-            // // console.log(tasksObj);
-            // const filterTask = tasksObj.find(task => task.id === action.payload.id) 
-            // console.log(filterTask);
-
-            // const tasksObj = Object.entries(state.tasks).map(item => item)
+            const oldTask = state.tasks[action.payload.id];
+            const updatedTask = {...oldTask, active: !state.tasks[action.payload.id].active}
+            state.tasks = {...state.tasks, [action.payload.id]: updatedTask}
             
-            // Object.values(function(key) {
-            //     return {tasks: state.tasks[key]}})
-            // state.tasks = tasksObj.filter(task => task.id !== action.payload.id)
-            // console.log(tasksObj);
+            const activeTask = {...state.tasks[action.payload.id]}
+            state.currentTask = {...activeTask}
+        },
+
+        changeStatus(state, action) {
+            console.log(action.event);
+            // const oldTask = state.tasks[action.payload.id];
+            // const updatedTask = {...oldTask, status: action.payload.status}
+            // state.tasks = {...state.tasks, [action.payload.id]: updatedTask}
         },
     },
 });
 
-export const {toggleCurrentTask, addTask} = taskSlice.actions;
+export const {toggleCurrentTask, addTask, changeStatus} = taskSlice.actions;
 export default taskSlice.reducer;
