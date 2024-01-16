@@ -3,8 +3,7 @@ import { column } from "../../board/BoardData";
 import './DropDownMenu.css'
 
 export default function DropDownMenu (item) {
-    // console.log(item);
-    const task = item.task.item.data
+    const task = item.task
     // get All task
 
 
@@ -18,10 +17,9 @@ export default function DropDownMenu (item) {
     //     dispatch(updateTask(updatedTask))
     // }
 
-    // console.log(task);
     return (
-<div className={`dropdown ${task.active === true ? "active" : ""}`}>
-            <div className='dropdown_title'>{task.title}</div>
+        <div className={`dropdown ${task.active === true ? "active" : ""}`}>
+             <div className='dropdown_title'>{task.title}</div>
             <div className='dropdown_executor'>
                 <div className='dropdown_executor_title title'>Исполнитель</div>
                 <div className='dropdown_executor_wrapper'>
@@ -38,7 +36,7 @@ export default function DropDownMenu (item) {
                 <div className='dropdown_deadlines_title title'>Крайний срок</div>
                 <div className='dropdown_deadlines_wrapper'>
                     <input type='text' id='DateTime' className='dropdown_deadlines_body_input'/>
-                    {/* <div className='dropdown_deadlines_icon'><img src='' alt='plus'/></div> */}
+                    <div className='dropdown_deadlines_icon'><img src='' alt='plus'/></div>
                 </div>
             </div>
             <div className='dropdown_categories'>
@@ -50,5 +48,5 @@ export default function DropDownMenu (item) {
                     )}
                 </select>
             </div>
-        </div>
+        </div> 
 )}
