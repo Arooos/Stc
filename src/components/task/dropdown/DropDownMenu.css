@@ -68,6 +68,10 @@
     margin-bottom: 16px;
 }
 
+.Task .dropdown .dropdown_deadlines .dropdown_deadlines_wrapper {
+    display: flex;
+}
+
 .dropdown_deadlines_body_input {
     width: 246px;
     height: 30px;

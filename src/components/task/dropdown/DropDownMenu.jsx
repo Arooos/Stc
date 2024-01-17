@@ -7,12 +7,12 @@ import './DropDownMenu.css'
 export default function DropDownMenu (item) {
     const task = item.task
     const id = task.id
-    // get All task
     const dispatch = useDispatch();
-    const handler = (event) => dispatch(changeStatus(event, id))
-
-        // const oldTask = tasks[task.id]
-        // const updateTask = { ...oldTask, status: event.carrentTarget.value}
+    const handler = (event) => {
+        const status = event.currentTarget.value;
+        console.log(status);
+        dispatch(changeStatus({status, id}))
+    }
 
     return (
         <div className={`dropdown ${task.active === true ? "active" : ""}`}>
@@ -33,12 +33,12 @@ export default function DropDownMenu (item) {
                 <div className='dropdown_deadlines_title title'>Крайний срок</div>
                 <div className='dropdown_deadlines_wrapper'>
                     <input type='text' id='DateTime' className='dropdown_deadlines_body_input'/>
-                    <div className='dropdown_deadlines_icon'><img src='' alt='plus'/></div>
+                    <div className='dropdown_deadlines_icon'><img src='../img/task_img/Calendar.png' alt='календарь'/></div>
                 </div>
             </div>
             <div className='dropdown_categories'>
                 <div className='dropdown_categories_title'>Категория</div>
-                <select className='dropdown_categories_list' defaultValue={task.status} onClick={handler(event)}>
+                <select className='dropdown_categories_list' defaultValue={task.status} onChange={handler}>
                     {
                         Object.values(column).map(item =>
                         <option key={item.id} value={item.status} className='dropdown_categories_list_item'>{item.title}</option>
