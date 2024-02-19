@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import Board from "./components/board/Board"
+import {Board} from "./components/board/Board"
 import { useDispatch } from "react-redux";
 import { addTask } from "./redux/tasks/tasks.slice";
 
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="App">
-          <Board/>
+        <Board/>
     </div>
   );
 }

@@ -46,8 +46,28 @@ const taskSlice = createSlice({
             state.tasks = {...state.tasks, [action.payload.id]: updatedTask}
             state.currentTask = {}
         },
+
+        dragAndDrop(state, action) {
+            const result = action.payload.results
+            // const sourceIndex = result.source.index;
+            // const destinationIndex = result.destination.index;
+            // const [removedStore] = reorderedStore.splice(sourceIndex, 1)
+            // console.log(removedStore);
+            // removedStore.splice(destinationIndex, 0, removedStore)
+
+            const newStatus = result.destination.droppableId
+            const oldTask = state.tasks[result.draggableId];
+            const updatedTask = {...oldTask, status: newStatus}
+            state.tasks = {...state.tasks, [result.draggableId]: updatedTask}
+            console.log(result);
+            // const results = action.payload.results;
+            // const sourceIndex = results.source.index;
+            // const destinationIndex = results.destination.index;
+
+        
+        }
     },
 });
 
-export const {toggleCurrentTask, addTask, changeStatus} = taskSlice.actions;
+export const {toggleCurrentTask, addTask, changeStatus, dragAndDrop} = taskSlice.actions;
 export default taskSlice.reducer;

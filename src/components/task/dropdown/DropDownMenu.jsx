@@ -2,11 +2,11 @@
 import { column } from "../../board/BoardData";
 import { useDispatch } from "react-redux";
 import { changeStatus } from "../../../redux/tasks/tasks.slice";
-import './DropDownMenu.css'
+import './DropDownMenu.sass'
 
-export default function DropDownMenu (item) {
-    const task = item.task
-    const id = task.id
+export function DropDownMenu (item) {
+    const task = item.task;
+    const id = task.id;
     const dispatch = useDispatch();
     const handler = (event) => {
         const status = event.currentTarget.value;
